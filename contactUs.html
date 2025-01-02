@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - THE U.N.I KOPITIAM</title> <!-- the title -->
+    <link rel="stylesheet" href="style.css"> <!-- link to the external css -->
+    <link href="https://fonts.googleapis.com/" rel="stylesheet"> <!-- link to the font -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!-- icons! -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="index.js"></script>
+    <style>
+        
+        /* Header Styling */
+        .header {
+            background-color: #ffc107;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .header img {
+            height: 80px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: red;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px;
+            gap: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .column h2 {
+            color: #ffa500;
+            text-align: center;
+        }
+
+        .column-right{
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f1dc75;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .column-right h2{
+            color: #ffa500;
+            text-align: center;
+            font-weight: bold;
+            
+        }
+
+        .p{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .column-right h4{
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-group button {
+            background-color: #ffc107;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #b71c1c;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+
+        .info-row {
+            display: flex; /* Align items horizontally */
+            align-items: center; /* Vertically center the icon and text */
+            gap: 10px; /* Space between icon and text */
+            margin-bottom: 20px; /* Add spacing between each row */
+        }
+
+        .info-row img {
+            flex-shrink: 0; /* Prevent the image from shrinking */
+        }
+
+        .info-row p {
+            margin: 0; /* Remove default margins from <p> */
+            font-size: 16px; /* Adjust font size for better readability */
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+      
+    </style>
+</head>
+<body>
+
+    <section id="header"> <!-- the first section, the header. The first thing the customer sees. -->
+        <div id="logo-container"> <!-- the logo -->
+            <img src="image/WhatsApp_Image_2024-11-13_at_11.56.45_0fe7d7a1-removebg-preview.png" alt="logo wadi budi">
+        </div>
+
+        <h1 id="title-header">THE U.N.I <br> KOPITIAM</h1>
+        
+        <button id="menu-toggle" aria-label="Toggle navigation menu">
+            <i class='bx bx-menu'></i>
+        </button>
+
+        <div id="navbar-container"> 
+                <ul id="navbar"> <!-- the navigation bar -->
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="">Catering Services</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a class="active" href="contactUs.html">Contact Us</a></li>
+                </ul>
+        </div>
+        
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Left Column -->
+        <div class="column">
+            <h2>FIND US</h2>
+            <br>
+
+            
+            <div class="info-row">
+                <img src="image/address.png" alt="pointer icon" width="50" height="50">
+                <p>
+                    <strong>Address:</strong><br>
+                    International Islamic University Malaysia,<br>
+                    Wadi Budi, Jalan Gombak,<br>
+                    53100 Kuala Lumpur.
+                </p>
+            </div>
+            
+            <div class="info-row">
+                <img src="image/phone.png" alt="phone icon" width="50" height="50">
+                <p>
+                    <strong>Phone:</strong><br>
+                    +6017 - 402 8556 (Owner)<br>
+                    +6010 - 280 8408 (Br Azman)
+                </p>
+            </div>
+            
+            <div class="info-row">
+                <img src="image/stall.png" alt="stall icon" width="50" height="50">
+                <p>
+                    <strong>Business Hours:</strong><br>
+                    Mon - Sat: 7.30 AM - 5.00 PM <br>
+                    ! Close at Sunday !
+                </p>
+            </div>
+
+            <p id="demo"></p>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    const x = document.getElementById("demo");
+
+    // Call the getLocation function when the page loads
+    window.onload = getLocation;
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            // Get the user's location
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            // Inform the user if Geolocation is not supported
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        // Use the user's actual latitude and longitude
+        const latitude = 3.25225;
+        const longitude = 101.73984;
+
+        // Initialize the map and set the user's location
+        const map = L.map('map').setView([latitude, longitude], 16);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add a marker for the user's location
+        L.marker([latitude, longitude]).addTo(map)
+            .bindPopup('You are here!')
+            .openPopup();
+    }
+
+    function showError(error) {
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "You denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get your location timed out.";
+                break;
+            default:
+                x.innerHTML = "An unknown error occurred.";
+                break;
+        }
+    }
+</script>
+
+            
+            
+        </div> <!--end of left column-->
+        
+        <!-- Right Column -->
+        <div class="column-right">
+            <h2>GET IN TOUCH</h2>
+            <br>
+            
+                <h4>You have a piece of advice or a suggestion <br> that you would like to share with us?</h4>
+                <h4>Feel free to contact us.</h4>
+                <br>
+                 <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback">Your Feedback</label>
+                        <input type="feedback" id="feedback" placeholder="Enter your feedback">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+            </form>
+
+            
+        </div>
+    </div>
+
+    
+</body>
+</html>
